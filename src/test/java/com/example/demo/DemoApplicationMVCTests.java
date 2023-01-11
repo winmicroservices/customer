@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.example.demo.model.Customer;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.example.demo.util.Util;
 
 
 @SpringBootTest
@@ -32,14 +32,11 @@ class DemoApplicationMVCTests {
 	public void createCustomer() throws Exception {
 		mvc.perform( MockMvcRequestBuilders
 				.post("/api/v1/customer/create")
-				.content(asJsonString(new Customer("Bill", "Polinchak", "Venice")))
+				.content(Util.asJsonString(new Customer("Bill", "Polinchak", "Venice")))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().is(200));
 	}
 
 
-	public static String asJsonString(final Object obj) throws Exception {
-		return new ObjectMapper().writeValueAsString(obj);
-	}
 }

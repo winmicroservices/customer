@@ -27,7 +27,7 @@ import com.example.demo.model.Customer;
 import com.example.demo.model.CustomerModel;
 import com.example.demo.service.CustomerService;
 import com.example.demo.service.TopicProducer;
-
+import com.example.demo.util.Util;
 import com.fasterxml.jackson.databind.ObjectMapper;
 /**
 * This class provides a rest API for the customer.
@@ -180,12 +180,8 @@ public class CustomerController {
     public EntityModel<Customer> saveCustomer(@RequestBody Customer customer) throws Exception {
         log.info("Saving customer {}",customer.getFirstName());
         Customer savedEmployee = customerService.saveCustomer(customer);
-        String kafkaMessage = CustomerController.asJsonString(savedEmployee);
+        String kafkaMessage = Util.asJsonString(savedEmployee);
         topicProducer.send(kafkaMessage);
         return retrieveCustomer(savedEmployee.getId());
     }
-
-    public static String asJsonString(final Object obj) throws Exception {
-		return new ObjectMapper().writeValueAsString(obj);
-	}
 }
