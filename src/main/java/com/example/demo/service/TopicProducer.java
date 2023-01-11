@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+* Kafka topic service for the customer.
+*/
 @Service
 @RequiredArgsConstructor
 public class TopicProducer {
@@ -19,6 +22,10 @@ public class TopicProducer {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
+    /**
+     * Sends a create order message to a Kafka topic that tracks new customers.
+     * @param message The Customer object in json format.
+     */
     public void send(String message){
         log.info("Payload message: {}", message);
         kafkaTemplate.send(topicName, message);
