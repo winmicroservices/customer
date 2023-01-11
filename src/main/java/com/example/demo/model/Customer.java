@@ -8,7 +8,9 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
   
-// class can be mapped to a table
+/**
+ * This class models a customer in a database.
+ */
 @Table(name = "customer")
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
