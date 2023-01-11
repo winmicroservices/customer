@@ -1,3 +1,21 @@
+# [3.1.0](https://github.com/winmicroservices/demo/compare/v3.0.0...v3.1.0) (2023-01-11)
+
+
+### Bug Fixes
+
+* [#27](https://github.com/winmicroservices/demo/issues/27) Adding Kafka libraries. ([ade2824](https://github.com/winmicroservices/demo/commit/ade28246a4623a1ffd89c55d67c5f1336614d5d5))
+* [#27](https://github.com/winmicroservices/demo/issues/27) Adding kafka properties for tests. ([adb8554](https://github.com/winmicroservices/demo/commit/adb8554aed4419bd484cc52105784c82e6af5a70))
+* [#27](https://github.com/winmicroservices/demo/issues/27) Kafka is working with docker-compose. ([85179f2](https://github.com/winmicroservices/demo/commit/85179f2567ff0244e25c55fa34e3e77cba3163f6))
+
+
+### Features
+
+* [#27](https://github.com/winmicroservices/demo/issues/27) Adding EmbeddedKafka for testing. ([cc5d125](https://github.com/winmicroservices/demo/commit/cc5d125fa39daada3b023e9953b71a1b58f1b494))
+* [#27](https://github.com/winmicroservices/demo/issues/27) Adding kafka viewer to the docker-compose. ([a4ff2e1](https://github.com/winmicroservices/demo/commit/a4ff2e1096b609c09409da284061cb637f784a34))
+* Add Kafka for events [#27](https://github.com/winmicroservices/demo/issues/27) ([cdb795d](https://github.com/winmicroservices/demo/commit/cdb795deae89e19dea3baabcadc875bfa02d872c))
+
+
+
 # [3.0.0](https://github.com/winmicroservices/demo/compare/v2.2.2...v3.0.0) (2023-01-06)
 
 
@@ -77,15 +95,6 @@
 
 * [#25](https://github.com/winmicroservices/demo/issues/25) Adding Jacoco test coverage. ([fd99f62](https://github.com/winmicroservices/demo/commit/fd99f62f9849da58d5724c1b92ddf50008a29a02))
 * [#25](https://github.com/winmicroservices/demo/issues/25) Run jacoco reports. ([16d9eab](https://github.com/winmicroservices/demo/commit/16d9eabd9393ac4f5307ad4d228d17c9b8eadf14))
-
-
-
-## [2.1.3](https://github.com/winmicroservices/demo/compare/v2.1.2...v2.1.3) (2022-12-22)
-
-
-### Bug Fixes
-
-* Fix the get employee service [#23](https://github.com/winmicroservices/demo/issues/23) ([5039810](https://github.com/winmicroservices/demo/commit/503981027eea2fe535112066eeef1e58471ceaf5))
 
 
 
