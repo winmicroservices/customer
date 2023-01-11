@@ -49,6 +49,12 @@ public class CustomerController {
     @Autowired
     private PagedResourcesAssembler<Customer> pagedResourcesAssembler;
 
+    /**
+     * Rest API for retreiving a single customer.
+     * @param id The primary key of the customer in the database.
+     * @return The customer in json format.
+     * @throws Exception If the customer can't be found.
+     */
     @GetMapping("/api/v1/customer/{id}")
     public EntityModel<Customer> retrieveCustomer(@PathVariable long id) throws Exception {
         Customer employee = customerService.getCustomer(id);
@@ -62,6 +68,10 @@ public class CustomerController {
           linkTo(methodOn(CustomerController.class).fetchCustomersWithPageInterface("", "", 0, 5)).withRel("customers"));
     }
 
+    /**
+     * Rest api for returning all the customers in the database.
+     * @return All the customers in json format.
+     */
     @GetMapping("/api/v0/customers")
     public CollectionModel<EntityModel<Customer>> retrieveAllEmployees() {
         List<EntityModel<Customer>> items = customerService.fetchCustomerDataAsList().stream().map(item -> EntityModel.of(item,
@@ -155,6 +165,17 @@ public class CustomerController {
 
 
 
+    /**
+     * Saves a customer to the database.
+     * 
+     * Example post with curl:
+     * 
+     * curl -X POST http://localhost:8080/v1/api/employee/create \\n   -H 'Content-Type: application/json' \\n   -d '{"firstName":"Bill","lastName":"Polinchak",city":"Venice"}'
+     * 
+     * @param customer The customer in json format.
+     * @return The customer along with its primary key.
+     * @throws Exception If the customer can't be stored.
+     */
     @RequestMapping(value = "/api/v1/customer/create", method = RequestMethod.POST, consumes = "application/json")
     public EntityModel<Customer> saveCustomer(@RequestBody Customer customer) throws Exception {
         log.info("Saving customer {}",customer.getFirstName());
