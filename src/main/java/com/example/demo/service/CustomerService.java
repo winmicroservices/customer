@@ -13,10 +13,15 @@ import org.springframework.stereotype.Service;
 import com.example.demo.model.Customer;
 import com.example.demo.rest.repository.CustomerRepository;
 
-
+/**
+* Spring service for the customer api.
+*/
 @Service
 public class CustomerService {
 
+    /**
+    * Dao for the customer repository.
+    */
     @Autowired
     private CustomerRepository customerRepository;
 
