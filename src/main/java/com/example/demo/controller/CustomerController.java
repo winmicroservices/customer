@@ -29,7 +29,9 @@ import com.example.demo.service.CustomerService;
 import com.example.demo.service.TopicProducer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+/**
+* This class provides a rest API for the customer.
+*/
 @RestController
 public class CustomerController {
 
