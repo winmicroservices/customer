@@ -41,6 +41,6 @@ class EmbeddedKafkaIntegrationTest {
     assertTrue(messageConsumed);
 
     String payload = consumer.getPayload();
-    assertNotNull(payload);
+    assertTrue(payload.contains("Polinchak"));
   }
 }
