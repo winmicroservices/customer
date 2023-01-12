@@ -7,9 +7,13 @@ import org.springframework.kafka.annotation.EnableKafka;
 
 @EnableKafka
 @SpringBootApplication
-public class DemoApplication {
+public class CustomerApplication {
 
+	/**
+	 * This is the main method for the Springboot application.
+	 * @param args Command line arguments.
+	 */
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(CustomerApplication.class, args);
 	}
 }

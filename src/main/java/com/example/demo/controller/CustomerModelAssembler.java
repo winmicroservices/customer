@@ -25,6 +25,11 @@ public class CustomerModelAssembler extends RepresentationModelAssemblerSupport<
         super(CustomerController.class, CustomerModel.class);
     }
 
+    /**
+     * Converts a Customer to a CustomerModel
+     * @param entity The Customer.
+     * @return The CustomerModel.
+     */
     @Override
     public CustomerModel toModel(Customer entity) {
         CustomerModel model = new CustomerModel();

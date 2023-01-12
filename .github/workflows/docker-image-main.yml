@@ -43,7 +43,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: polinchw/demo
+          images: polinchw/customer
 
       - name: Conventional Changelog Action
         id: changelog
@@ -66,7 +66,7 @@ jobs:
 
       - name: Build with Maven
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
-        run: mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=polinchw/demo:${{ steps.changelog.outputs.version }}
+        run: mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=polinchw/customer:${{ steps.changelog.outputs.version }}
 
       - name: Create Release
         uses: actions/create-release@v1
@@ -82,4 +82,4 @@ jobs:
       - name: Push Docker Image
         id: docker-push
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
-        run: docker push polinchw/demo:${{ steps.changelog.outputs.version }}
+        run: docker push polinchw/customer:${{ steps.changelog.outputs.version }}
