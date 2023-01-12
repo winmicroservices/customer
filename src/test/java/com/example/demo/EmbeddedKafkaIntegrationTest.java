@@ -1,6 +1,9 @@
 package com.example.demo;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +37,10 @@ class EmbeddedKafkaIntegrationTest {
     Customer c = new Customer("Bill","Polinchak","Venice");
     String json = Util.asJsonString(c);
     producer.send(json);
-    assertTrue(true);
+
+    boolean messageConsumed = consumer.getLatch().await(10, TimeUnit.SECONDS);
+        
+    assertTrue(messageConsumed);
+    assertEquals(consumer.getPayload(), json);
   }
 }

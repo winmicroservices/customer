@@ -16,6 +16,22 @@ public class KafkaConsumer {
     private CountDownLatch latch = new CountDownLatch(1);
     private String payload;
 
+    public CountDownLatch getLatch() {
+        return this.latch;
+    }
+
+    public void setLatch(CountDownLatch latch) {
+        this.latch = latch;
+    }
+
+    public String getPayload() {
+        return this.payload;
+    }
+
+    public void setPayload(String payload) {
+        this.payload = payload;
+    }
+
     @KafkaListener(topics = "${topic.name.producer}")
     public void receive(ConsumerRecord<?, ?> consumerRecord) {
         LOGGER.info("received payload='{}'", consumerRecord.toString());
