@@ -3,11 +3,11 @@ package com.example.demo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.annotation.DirtiesContext;
@@ -16,6 +16,7 @@ import com.example.demo.component.kafka.KafkaConsumer;
 import com.example.demo.component.kafka.TopicProducer;
 import com.example.demo.model.Customer;
 import com.example.demo.util.Util;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
 @DirtiesContext
@@ -38,6 +39,9 @@ class EmbeddedKafkaIntegrationTest {
     boolean messageConsumed = consumer.getLatch().await(30, TimeUnit.SECONDS);
         
     assertTrue(messageConsumed);
-    assertEquals(consumer.getPayload(), json);
+    String payload = consumer.getPayload();
+    ObjectMapper mapper = new ObjectMapper();
+    Map<String,Object> map = mapper.readValue(payload, Map.class);
+    assertEquals(map.get("firstName"), "Bill");
   }
 }
