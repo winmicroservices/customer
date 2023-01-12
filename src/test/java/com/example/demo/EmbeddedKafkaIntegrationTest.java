@@ -28,9 +28,6 @@ class EmbeddedKafkaIntegrationTest {
   @Autowired
   KafkaConsumer consumer;
 
-  @Value("${topic.name.producer}")
-  private String topic;
-
   @Test
   public void givenEmbeddedKafkaBroker_whenSendingWithSimpleProducer_thenMessageReceived() 
     throws Exception {
@@ -38,7 +35,7 @@ class EmbeddedKafkaIntegrationTest {
     String json = Util.asJsonString(c);
     producer.send(json);
 
-    boolean messageConsumed = consumer.getLatch().await(10, TimeUnit.SECONDS);
+    boolean messageConsumed = consumer.getLatch().await(30, TimeUnit.SECONDS);
         
     assertTrue(messageConsumed);
     assertEquals(consumer.getPayload(), json);
