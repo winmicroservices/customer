@@ -9,23 +9,23 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.annotation.DirtiesContext;
 
+import com.example.demo.component.kafka.KafkaConsumer;
+import com.example.demo.component.kafka.TopicProducer;
 import com.example.demo.model.Customer;
-import com.example.demo.service.TopicListener;
-import com.example.demo.service.TopicProducer;
 import com.example.demo.util.Util;
 
 @SpringBootTest
 @DirtiesContext
-@EmbeddedKafka(partitions = 1, brokerProperties = { "listeners=PLAINTEXT://localhost:9092", "port=9092" })
+@EmbeddedKafka(partitions = 1, brokerProperties = { "listeners=PLAINTEXT://localhost:9093", "port=9093" })
 class EmbeddedKafkaIntegrationTest {
 
   @Autowired
   TopicProducer producer;
 
   @Autowired
-  TopicListener consumer;
+  KafkaConsumer consumer;
 
-  @Value("${test.topic}")
+  @Value("${topic.name.producer}")
   private String topic;
 
   @Test

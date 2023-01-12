@@ -23,10 +23,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.component.kafka.TopicProducer;
 import com.example.demo.model.Customer;
 import com.example.demo.model.CustomerModel;
 import com.example.demo.service.CustomerService;
-import com.example.demo.service.TopicProducer;
 import com.example.demo.util.Util;
 import com.fasterxml.jackson.databind.ObjectMapper;
 /**
