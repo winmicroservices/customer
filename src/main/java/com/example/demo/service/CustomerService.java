@@ -3,6 +3,8 @@ package com.example.demo.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,14 +12,21 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.component.kafka.TopicProducer;
 import com.example.demo.model.Customer;
 import com.example.demo.rest.repository.CustomerRepository;
+import com.example.demo.util.Util;
 
 /**
 * Spring service for the customer api.
 */
 @Service
 public class CustomerService {
+
+    private final static Logger log = LoggerFactory.getLogger(CustomerService.class);
+
+    @Autowired
+    private TopicProducer topicProducer;
 
     /**
     * Dao for the customer repository.
@@ -26,6 +35,14 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     public Customer saveCustomer(Customer customer) {
+        String kafkaMessage = null;;
+        try {
+            kafkaMessage = Util.asJsonString(customer);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            throw new RuntimeException(e);
+        }
+        topicProducer.send(kafkaMessage);
         return customerRepository.save(customer);
     }
 
