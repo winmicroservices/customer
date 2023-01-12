@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.component.kafka.TopicProducer;
 import com.example.demo.model.Customer;
+import com.example.demo.model.State;
 import com.example.demo.rest.repository.CustomerRepository;
 import com.example.demo.util.Util;
 
@@ -35,7 +36,8 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     public Customer saveCustomer(Customer customer) {
-        String kafkaMessage = null;;
+        customer.setState(State.CREATED);
+        String kafkaMessage = null;
         try {
             kafkaMessage = Util.asJsonString(customer);
         } catch (Exception e) {

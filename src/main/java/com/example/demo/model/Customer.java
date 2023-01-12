@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
   
@@ -24,20 +25,43 @@ public class Customer {
 
     private String firstName;
     private String lastName;
-
+    private Integer creditLimit;
+    
+    /**
+     * Used for tracking the state changes for reporting.
+     * We will not store this in this app's database.
+     */
+    @Transient
+    private State state;
     
     private String city;
     
     public Customer() {
         super();
     }
+    
     public Customer(String firstName, String lastName, String city) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
     }
+    
+    public Integer getCreditLimit() {
+        return this.creditLimit;
+    }
 
+    public void setCreditLimit(Integer creditLimit) {
+        this.creditLimit = creditLimit;
+    }
+
+    public State getState() {
+        return this.state;
+    }
+    
+    public void setState(State state) {
+        this.state = state;
+    }
     public long getId() {
         return this.id;
     }
