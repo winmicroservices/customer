@@ -20,16 +20,8 @@ public class KafkaConsumer {
         return this.latch;
     }
 
-    public void setLatch(CountDownLatch latch) {
-        this.latch = latch;
-    }
-
     public String getPayload() {
         return this.payload;
-    }
-
-    public void setPayload(String payload) {
-        this.payload = payload;
     }
 
     @KafkaListener(topics = "${topic.name.producer}")
