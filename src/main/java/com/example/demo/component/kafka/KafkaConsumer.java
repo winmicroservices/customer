@@ -31,9 +31,4 @@ public class KafkaConsumer {
         latch.countDown();
     }
 
-    public void resetLatch() {
-        latch = new CountDownLatch(1);
-    }
-
-    // other getters
 }
