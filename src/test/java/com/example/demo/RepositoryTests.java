@@ -36,8 +36,8 @@ public class RepositoryTests {
         customer.setCity("Venice");
         log.info("Saving customer {}",customer.getFirstName());
         customerRepository.save(customer);
-        Customer founEmployee = customerRepository.findByFirstName("Bill");
-        assertEquals(founEmployee.getFirstName(), customer.getFirstName());
+        Customer foundEmployee = customerRepository.findByFirstName("Bill");
+        assertEquals(foundEmployee.getFirstName(), customer.getFirstName());
     }
 
 }

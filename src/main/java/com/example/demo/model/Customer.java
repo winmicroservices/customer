@@ -4,8 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -18,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Slf4j
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Customer {
     
     // @ID This annotation specifies 
@@ -29,13 +31,6 @@ public class Customer {
     private String firstName;
     private String lastName;
     private Integer creditLimit;
-    
-    /**
-     * Used for tracking the state changes for reporting.
-     * We will not store this in this app's database.
-     */
-    @Transient
-    private State state;
     
     private String city;
     
@@ -59,13 +54,6 @@ public class Customer {
         this.creditLimit = creditLimit;
     }
 
-    public State getState() {
-        return this.state;
-    }
-    
-    public void setState(State state) {
-        this.state = state;
-    }
     public long getId() {
         return this.id;
     }
