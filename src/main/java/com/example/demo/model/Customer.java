@@ -8,6 +8,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.extern.slf4j.Slf4j;
   
 /**
  * This class models a customer in a database.
@@ -15,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "customer")
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Slf4j
 public class Customer {
     
     // @ID This annotation specifies 
@@ -42,6 +45,7 @@ public class Customer {
     
     public Customer(String firstName, String lastName, String city) {
         super();
+        log.debug("new customer created");
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
