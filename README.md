@@ -9,6 +9,29 @@ organization set of repositories.
 
 GraalVM builds a native image for the Java app to start up and run faster.
 
+## Run locally
+
+Bring up the database:
+
++ docker-compose up
+
+Populate the database
+
++ Log in to PHP Myadmin http://localhost 
+  + db: mysql
+  + username: root
+  + password: password
+
++ Run the following SQL scripts from src/main/sql:
+  + create-user.sql
+  + Log out of Myadmin
+  + Log back in PHP Myadmin with the credentials: 
+    + db: mysql
+    + username: demo
+    + password: demo
+  + Run the following script to create the database:  
+  + create-database.sql
+
 ### Springboot support
 
 Springboot supports GraalVM.  Refer to this link on [SpringBoot GraalVM](https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/native-image.html#native-image) support.
