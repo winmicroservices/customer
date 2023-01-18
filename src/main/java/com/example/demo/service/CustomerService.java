@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.model.Customer;
 import com.example.demo.model.Event;
 import com.example.demo.model.State;
-import com.example.demo.rest.repository.CustomerEventRepository;
+import com.example.demo.rest.repository.EventRepository;
 import com.example.demo.rest.repository.CustomerRepository;
 import com.example.demo.util.Util;
 
@@ -36,14 +36,23 @@ public class CustomerService {
     * Dao for the customer history.
     */
     @Autowired
-    private CustomerEventRepository customerHistoryRepository;
+    private EventRepository eventRepository;
 
     public Customer saveCustomer(Customer customer) throws Exception {
         log.info("Saving customer {}",customer.getLastName());
         Customer newCustomer = customerRepository.save(customer);
         Event event = new Event(State.INSERT,newCustomer.getId(),Util.asJsonString(newCustomer));
-        customerHistoryRepository.save(event);
+        eventRepository.save(event);
         return newCustomer;
+    }
+
+    public Customer deleteCustomer(long id) throws Exception {
+        log.info("Deleting customer id: {}", Long.toString(id));
+        Customer customer = customerRepository.getReferenceById(id);
+        Event event = new Event(State.DELETE,customer.getId(),null);
+        eventRepository.save(event);
+        customerRepository.deleteById(id);
+        return customer;
     }
 
     public Customer getCustomer(Long id) {
