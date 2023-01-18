@@ -41,8 +41,8 @@ public class CustomerService {
     public Customer saveCustomer(Customer customer) throws Exception {
         log.info("Saving customer {}",customer.getLastName());
         Customer newCustomer = customerRepository.save(customer);
-        Event history = new Event(State.INSERT,newCustomer.getId(),Util.asJsonString(newCustomer));
-        customerHistoryRepository.save(history);
+        Event event = new Event(State.INSERT,newCustomer.getId(),Util.asJsonString(newCustomer));
+        customerHistoryRepository.save(event);
         return newCustomer;
     }
 

@@ -18,8 +18,12 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Table(name = "customer")
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties(value = {"id", "hibernateLazyInitializer", "handler"})
 @Slf4j
+// @JsonIgnoreProperties(value = {
+//     "id",
+//     "firstName"
+// })
 public class Customer {
     
     /**
