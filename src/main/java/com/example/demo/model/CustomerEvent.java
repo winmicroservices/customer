@@ -3,16 +3,14 @@ package com.example.demo.model;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Table(name = "customer_history")
+@Table(name = "customer_event")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
-public class CustomerHistory extends Customer {
+public class CustomerEvent extends Customer {
 
     /**
     * Used to track the state of the customer.
@@ -20,7 +18,7 @@ public class CustomerHistory extends Customer {
     @Enumerated(EnumType.STRING)
     private State state;
         
-    public CustomerHistory(State state, Customer customer) {
+    public CustomerEvent(State state, Customer customer) {
         this.state = state;
         super.setCity(customer.getCity());
         super.setFirstName(customer.getFirstName());

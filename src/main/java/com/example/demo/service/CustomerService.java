@@ -11,9 +11,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Customer;
-import com.example.demo.model.CustomerHistory;
+import com.example.demo.model.CustomerEvent;
 import com.example.demo.model.State;
-import com.example.demo.rest.repository.CustomerHistoryRepository;
+import com.example.demo.rest.repository.CustomerEventRepository;
 import com.example.demo.rest.repository.CustomerRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -35,11 +35,11 @@ public class CustomerService {
     * Dao for the customer history.
     */
     @Autowired
-    private CustomerHistoryRepository customerHistoryRepository;
+    private CustomerEventRepository customerHistoryRepository;
 
     public Customer saveCustomer(Customer customer) {
         log.info("Saving customer {}",customer.getLastName());
-        CustomerHistory history = new CustomerHistory(State.CREATED,customer);
+        CustomerEvent history = new CustomerEvent(State.CREATED,customer);
         customerHistoryRepository.save(history);
         return customerRepository.save(customer);
     }

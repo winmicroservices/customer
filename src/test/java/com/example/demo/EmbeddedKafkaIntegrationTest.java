@@ -1,10 +1,7 @@
 package com.example.demo;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
@@ -17,7 +14,6 @@ import com.example.demo.component.kafka.KafkaConsumer;
 import com.example.demo.component.kafka.TopicProducer;
 import com.example.demo.model.Customer;
 import com.example.demo.util.Util;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
 @DirtiesContext
