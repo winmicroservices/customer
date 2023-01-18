@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,12 +20,13 @@ import lombok.extern.slf4j.Slf4j;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Slf4j
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Customer {
     
-    // @ID This annotation specifies 
-    // the primary key of the entity.
+    /**
+    * Primary key.
+    */
     @Id
+    @Column(name="customer_id")
     @GeneratedValue(strategy = GenerationType.AUTO) 
     private long id;
 

@@ -11,10 +11,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Customer;
-import com.example.demo.model.CustomerEvent;
+import com.example.demo.model.Event;
 import com.example.demo.model.State;
 import com.example.demo.rest.repository.CustomerEventRepository;
 import com.example.demo.rest.repository.CustomerRepository;
+import com.example.demo.util.Util;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,10 +38,10 @@ public class CustomerService {
     @Autowired
     private CustomerEventRepository customerHistoryRepository;
 
-    public Customer saveCustomer(Customer customer) {
+    public Customer saveCustomer(Customer customer) throws Exception {
         log.info("Saving customer {}",customer.getLastName());
         Customer newCustomer = customerRepository.save(customer);
-        CustomerEvent history = new CustomerEvent(State.CREATED,newCustomer);
+        Event history = new Event(State.INSERT,newCustomer.getId(),Util.asJsonString(newCustomer));
         customerHistoryRepository.save(history);
         return newCustomer;
     }
