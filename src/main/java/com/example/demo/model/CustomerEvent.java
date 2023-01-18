@@ -17,12 +17,17 @@ public class CustomerEvent extends Customer {
     */
     @Enumerated(EnumType.STRING)
     private State state;
+
+    public CustomerEvent() {
+        
+    }
         
     public CustomerEvent(State state, Customer customer) {
         this.state = state;
         super.setCity(customer.getCity());
         super.setFirstName(customer.getFirstName());
         super.setLastName(customer.getLastName());
+        super.setCreditLimit(customer.getCreditLimit());
     }
  
     public State getState() {
