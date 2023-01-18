@@ -17,7 +17,7 @@ import com.example.demo.util.Util;
 
 @SpringBootTest
 @DirtiesContext
-@EmbeddedKafka(partitions = 1, brokerProperties = { "listeners=PLAINTEXT://localhost:9092", "port=9092" })
+@EmbeddedKafka(partitions = 1, controlledShutdown = false, brokerProperties = { "listeners=PLAINTEXT://localhost:3333", "port=3333" })
 class EmbeddedKafkaIntegrationTest {
 
   @Autowired
