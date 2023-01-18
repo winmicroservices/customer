@@ -64,6 +64,16 @@ public class CustomerController {
     }
 
     /**
+     * Deletes the customer from the db.
+     * @param id The customer_id of the customer that will be deleted.
+     * @throws Exception If the customer can be found or deleted.
+     */
+    @RequestMapping(value = "/api/v1/customer/{id}", method = RequestMethod.DELETE)
+    public void deleteLocation(@PathVariable String id) throws Exception {
+        customerService.deleteCustomer(Long.valueOf(id));
+    }
+
+    /**
      * Rest api for returning all the customers in the database.
      * @return All the customers in json format.
      */

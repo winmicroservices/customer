@@ -38,6 +38,12 @@ public class CustomerService {
     @Autowired
     private EventRepository eventRepository;
 
+    /**
+     * Saves the customer and create a record in the event table.
+     * @param customer The customer to save to the db.
+     * @return The new customer.
+     * @throws Exception If something breaks.
+     */
     public Customer saveCustomer(Customer customer) throws Exception {
         log.info("Saving customer {}",customer.getLastName());
         Customer newCustomer = customerRepository.save(customer);
@@ -46,6 +52,12 @@ public class CustomerService {
         return newCustomer;
     }
 
+    /**
+     * Deletes the customer by the customer's id.
+     * @param id The customer_id of the customer that will be deleted.
+     * @return The deleted customer.
+     * @throws Exception If the customer can't be deleted.
+     */
     public Customer deleteCustomer(long id) throws Exception {
         log.info("Deleting customer id: {}", Long.toString(id));
         Customer customer = customerRepository.getReferenceById(id);
