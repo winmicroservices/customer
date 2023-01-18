@@ -39,9 +39,10 @@ public class CustomerService {
 
     public Customer saveCustomer(Customer customer) {
         log.info("Saving customer {}",customer.getLastName());
-        CustomerEvent history = new CustomerEvent(State.CREATED,customer);
+        Customer newCustomer = customerRepository.save(customer);
+        CustomerEvent history = new CustomerEvent(State.CREATED,newCustomer);
         customerHistoryRepository.save(history);
-        return customerRepository.save(customer);
+        return newCustomer;
     }
 
     public Customer getCustomer(Long id) {

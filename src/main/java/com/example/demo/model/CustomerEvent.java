@@ -22,7 +22,7 @@ public class CustomerEvent extends Customer {
     @Enumerated(EnumType.STRING)
     private State state;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne
     @JoinColumn(name = "customer_fk")
     @JsonManagedReference
     private Customer customer;
