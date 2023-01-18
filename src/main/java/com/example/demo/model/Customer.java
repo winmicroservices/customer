@@ -20,10 +20,6 @@ import lombok.extern.slf4j.Slf4j;
 @Entity
 @JsonIgnoreProperties(value = {"id", "hibernateLazyInitializer", "handler"})
 @Slf4j
-// @JsonIgnoreProperties(value = {
-//     "id",
-//     "firstName"
-// })
 public class Customer {
     
     /**
