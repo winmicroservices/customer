@@ -52,5 +52,23 @@ class RestControllerTests {
 			.andExpect(status().is(200));
 	}
 
+	@Test
+	public void updateCustomer() throws Exception {
+		mvc.perform( MockMvcRequestBuilders
+				.post("/api/v1/customer/create")
+				.content(Util.asJsonString(new Customer("William", "Polinchak", "Venice")))
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().is(200));
+
+		mvc.perform( MockMvcRequestBuilders
+			.put("/api/v1/customer/update/1")
+			.content(Util.asJsonString(new Customer("William", "Polinchak", "Atlanta")))
+			.contentType(MediaType.APPLICATION_JSON)
+			.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().is(200));
+	}
+
+	
 
 }

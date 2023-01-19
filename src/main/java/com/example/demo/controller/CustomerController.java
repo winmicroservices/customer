@@ -190,7 +190,7 @@ public class CustomerController {
         return retrieveCustomer(savedEmployee.getId());
     }
 
-    @PutMapping(value= "/api/v1/customer/{id}")
+    @PutMapping(value= "/api/v1/customer/update/{id}")
     public EntityModel<Customer> updateCustomer(@PathVariable(value = "id") Long id, @RequestBody Customer customer) throws Exception {
         customer.setId(id);
         Customer updatedCustomer = customerService.updateCustomer(customer);
