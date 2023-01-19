@@ -1,3 +1,37 @@
+# [5.0.0](https://github.com/winmicroservices/customer/compare/v4.0.0...v5.0.0) (2023-01-19)
+
+
+### Bug Fixes
+
+* [#37](https://github.com/winmicroservices/customer/issues/37) Adding the forgein key to the customer_event table. ([e1a8685](https://github.com/winmicroservices/customer/commit/e1a8685c9ec6a822aeb6d8cb7674bf9a958bde75))
+* [#37](https://github.com/winmicroservices/customer/issues/37) Changed the MVC test name to RestContollerTest.  Added a more complex HATEOS test. ([70a7af7](https://github.com/winmicroservices/customer/commit/70a7af71baa38b987328812cbcea2fd7f74f1fd3))
+* [#37](https://github.com/winmicroservices/customer/issues/37) Made the kafka test simpler. ([4b03d38](https://github.com/winmicroservices/customer/commit/4b03d385e263cc74ff067ee3ff95600c3ba62530))
+* [#37](https://github.com/winmicroservices/customer/issues/37) Remove the kafka test for now. ([3dfe6bd](https://github.com/winmicroservices/customer/commit/3dfe6bda8edbdbcf5025740c30e8b550c864f5a4))
+* [#37](https://github.com/winmicroservices/customer/issues/37) Removed the cascade on persist. ([7c9c3ba](https://github.com/winmicroservices/customer/commit/7c9c3baefa815f6b0fc9b1a354bffde70b6f5d91))
+* [#37](https://github.com/winmicroservices/customer/issues/37) Removing a commented out section. ([584cb9e](https://github.com/winmicroservices/customer/commit/584cb9efe08e88fefdaac73a659dd4854d56436d))
+* [#37](https://github.com/winmicroservices/customer/issues/37) Renaming customer_history table to customer_event table. ([0a47e66](https://github.com/winmicroservices/customer/commit/0a47e661a0ee09474c70725fd1b3bf65bb1170ea))
+* [#37](https://github.com/winmicroservices/customer/issues/37) Try the Slf4j logger. ([0d9474d](https://github.com/winmicroservices/customer/commit/0d9474d6c4795c5cf0327cf2a6ebcac41522bb5e))
+* Add a delete service.  Refactor the event repository name. ([f511806](https://github.com/winmicroservices/customer/commit/f511806eb8d46785bc79ee730ea87658ff49192e))
+
+
+### Features
+
+* [#37](https://github.com/winmicroservices/customer/issues/37) Added update api test. ([fe21b13](https://github.com/winmicroservices/customer/commit/fe21b13a9441bd92b5a161ae5fa3687609fb9c10))
+* [#37](https://github.com/winmicroservices/customer/issues/37) Adding a delete test. ([f1ee634](https://github.com/winmicroservices/customer/commit/f1ee634d11943592d9f52f51fa55ad121ddcd91f))
+* [#37](https://github.com/winmicroservices/customer/issues/37) The update should check to see if the customer exists before updating. ([89c55e1](https://github.com/winmicroservices/customer/commit/89c55e19cb76da15a8fa0119c2015994d80da0b0))
+* **delete:** [#37](https://github.com/winmicroservices/customer/issues/37) Adding delete API. ([0a426b7](https://github.com/winmicroservices/customer/commit/0a426b77261ab617fd4169cf038bd9937bff6520))
+* **health:** Add CQRS to updates and deletes [#37](https://github.com/winmicroservices/customer/issues/37).  Adding Springboot actuator health check. ([26f71a3](https://github.com/winmicroservices/customer/commit/26f71a3593e8eae3914fe0d9e2f6f52e55d1bbcc))
+* **history:** [#37](https://github.com/winmicroservices/customer/issues/37) Adding CustomerHistory and supporting table. ([4ed5b23](https://github.com/winmicroservices/customer/commit/4ed5b235f43a069852e2e513a40d6cdb64d4a236))
+* **model:** [#37](https://github.com/winmicroservices/customer/issues/37) Changing to a generic model. ([f598ebd](https://github.com/winmicroservices/customer/commit/f598ebdb47db4dba0a9586d639313d2b7af0bb49))
+* **model:** [#37](https://github.com/winmicroservices/customer/issues/37) Ignoring the id when running the jackson mashler. ([a27ac83](https://github.com/winmicroservices/customer/commit/a27ac832f75ec3b3be9aacae49c8cc8dfdb4f69b))
+
+
+### BREAKING CHANGES
+
+* **model:** Changing the db schema.
+
+
+
 # [4.0.0](https://github.com/winmicroservices/customer/compare/v3.1.0...v4.0.0) (2023-01-12)
 
 
@@ -81,24 +115,6 @@
 * Publish Jacoco reports. [#29](https://github.com/winmicroservices/customer/issues/29) ([2c67ec0](https://github.com/winmicroservices/customer/commit/2c67ec0e74f395c4645c1145f43fe205b9689cbd))
 * Publish Jacoco reports. [#29](https://github.com/winmicroservices/customer/issues/29).  Put the path in quotes. ([c85ba53](https://github.com/winmicroservices/customer/commit/c85ba53dbe08cc59139a488ebf9b1ee5caa22086))
 * Publish Jacoco reports. [#29](https://github.com/winmicroservices/customer/issues/29).  Updating the readme to reflect changes in the api. ([e749930](https://github.com/winmicroservices/customer/commit/e749930c69637f96245340dd678c30ea09389d64))
-
-
-
-## [2.2.1](https://github.com/winmicroservices/customer/compare/v2.2.0...v2.2.1) (2023-01-05)
-
-
-### Bug Fixes
-
-*  [#28](https://github.com/winmicroservices/customer/issues/28) Adding lastname field. ([57accef](https://github.com/winmicroservices/customer/commit/57accef5efd5dcc002548a6703c91be1942287ad))
-*  [#28](https://github.com/winmicroservices/customer/issues/28) API links have changed. ([32c3940](https://github.com/winmicroservices/customer/commit/32c3940deff572757e23e3f5b0a4fdacd1a2978b))
-*  [#28](https://github.com/winmicroservices/customer/issues/28) Updating readme to reflect change to customer model. ([f06ef1c](https://github.com/winmicroservices/customer/commit/f06ef1c8442713b517852a7fc913058dc18bb40f))
-* [#28](https://github.com/winmicroservices/customer/issues/28) Adding links to customers apis. ([e5361a1](https://github.com/winmicroservices/customer/commit/e5361a1853c963709945ecb71a581148c5a594b4))
-* [#28](https://github.com/winmicroservices/customer/issues/28) Removed the customerId. ([fb85f8a](https://github.com/winmicroservices/customer/commit/fb85f8a1d6fbaa479327a01c427b27088dc75404))
-* [#28](https://github.com/winmicroservices/customer/issues/28) Set the app to update the db only. ([97040cc](https://github.com/winmicroservices/customer/commit/97040ccd6cfac56a2512518dc8c8c1ba00639a0e))
-* [#28](https://github.com/winmicroservices/customer/issues/28) The create customer is working. ([617037d](https://github.com/winmicroservices/customer/commit/617037d55cc9c908647c030ed7be9c489da4c9ab))
-* [#28](https://github.com/winmicroservices/customer/issues/28) The self link was added to the link in the list. ([36fef94](https://github.com/winmicroservices/customer/commit/36fef94232a9f483318531a69835417b33b87bbf))
-* [#28](https://github.com/winmicroservices/customer/issues/28) Use the link for v4. ([baf022c](https://github.com/winmicroservices/customer/commit/baf022cfe280fa05ec1b53a1aee5a254ec71ca1c))
-* [#28](https://github.com/winmicroservices/customer/issues/28) Working on the hatoes links. ([758a2db](https://github.com/winmicroservices/customer/commit/758a2db5469bac20c0fa3f83a82cc509adfb2f6f))
 
 
 
