@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -54,6 +55,23 @@ public class RepositoryTests {
         foundEmployee.setFirstName("William");
         Customer updatedCustomer = customerRepository.save(foundEmployee);
         assertEquals(updatedCustomer.getFirstName(), "William");
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+        Customer customer = new Customer();
+        customer.setFirstName("Bill");
+        customer.setLastName("Polinchak");
+        customer.setCity("Venice");
+        log.info("Saving customer {}",customer.getFirstName());
+        customerRepository.save(customer);
+        Customer foundEmployee = customerRepository.findByFirstName("Bill");
+        assertEquals(foundEmployee.getFirstName(), customer.getFirstName());
+
+        customerRepository.deleteById(foundEmployee.getId());
+
+        assertFalse(customerRepository.existsById(foundEmployee.getId()));
+        
     }
 
 }
