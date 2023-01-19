@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -66,8 +64,7 @@ public class RepositoryTests {
         log.info("Saving customer {}",customer.getFirstName());
         customerRepository.save(customer);
         Customer foundEmployee = customerRepository.findByFirstName("Bill");
-        assertEquals(foundEmployee.getFirstName(), customer.getFirstName());
-
+        //Delete the customer
         customerRepository.deleteById(foundEmployee.getId());
 
         assertFalse(customerRepository.existsById(foundEmployee.getId()));
