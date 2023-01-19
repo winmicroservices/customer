@@ -53,13 +53,18 @@ public class CustomerService {
     }
 
     /**
-     * Updates the customer in the database.    
+     * Updates the customer in the database. It updated the event table as well with the update.
      * @param customer The customer that needs to be updated.
      * @return The updated customer.
      * @throws Exception If the customer cannot be found or updated.
      */
     public Customer updateCustomer(Customer customer) throws Exception {
+        if(!customerRepository.existsById(customer.getId())) {
+            throw new Exception("Customer "+customer.getId()+" could not be found.");
+        }
         Customer updatedCustomer = customerRepository.save(customer);
+        Event event = new Event(State.UPDATE,updatedCustomer.getId(),Util.asJsonString(updatedCustomer));
+        eventRepository.save(event);
         return updatedCustomer;
     }
 
@@ -70,6 +75,9 @@ public class CustomerService {
      * @throws Exception If the customer can't be deleted.
      */
     public Customer deleteCustomer(long id) throws Exception {
+        if(!customerRepository.existsById(id)) {
+            throw new Exception("Customer "+id+" could not be found.");
+        }
         log.info("Deleting customer id: {}", Long.toString(id));
         Customer customer = customerRepository.getReferenceById(id);
         Event event = new Event(State.DELETE,customer.getId(),null);
