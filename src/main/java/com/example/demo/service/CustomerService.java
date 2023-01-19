@@ -53,6 +53,17 @@ public class CustomerService {
     }
 
     /**
+     * Updates the customer in the database.    
+     * @param customer The customer that needs to be updated.
+     * @return The updated customer.
+     * @throws Exception If the customer cannot be found or updated.
+     */
+    public Customer updateCustomer(Customer customer) throws Exception {
+        Customer updatedCustomer = customerRepository.save(customer);
+        return updatedCustomer;
+    }
+
+    /**
      * Deletes the customer by the customer's id.
      * @param id The customer_id of the customer that will be deleted.
      * @return The deleted customer.

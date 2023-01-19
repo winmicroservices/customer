@@ -15,8 +15,10 @@ import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -186,5 +188,12 @@ public class CustomerController {
         log.info("Saving customer {}",customer.getFirstName());
         Customer savedEmployee = customerService.saveCustomer(customer);
         return retrieveCustomer(savedEmployee.getId());
+    }
+
+    @PutMapping(value= "/api/v1/customer/{id}")
+    public EntityModel<Customer> updateCustomer(@PathVariable(value = "id") Long id, @RequestBody Customer customer) throws Exception {
+        customer.setId(id);
+        Customer updatedCustomer = customerService.updateCustomer(customer);
+        return retrieveCustomer(updatedCustomer.getId());
     }
 }

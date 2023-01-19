@@ -14,19 +14,19 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.demo.model.Customer;
 import com.example.demo.rest.repository.CustomerRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @SpringBootTest
 @Transactional
+@Slf4j
 public class RepositoryTests {
 
     @Configuration
 	@EnableAutoConfiguration
 	static class Config {}
 
-    private static Logger log = LoggerFactory.getLogger(RepositoryTests.class);
-
     @Autowired
     private CustomerRepository customerRepository;
-
 
     @Test
     public void testCustomerInsert() throws Exception {
@@ -38,6 +38,22 @@ public class RepositoryTests {
         customerRepository.save(customer);
         Customer foundEmployee = customerRepository.findByFirstName("Bill");
         assertEquals(foundEmployee.getFirstName(), customer.getFirstName());
+    }
+
+    @Test
+    public void testCustomerUpdate() throws Exception {
+        Customer customer = new Customer();
+        customer.setFirstName("Bill");
+        customer.setLastName("Polinchak");
+        customer.setCity("Venice");
+        log.info("Saving customer {}",customer.getFirstName());
+        customerRepository.save(customer);
+        Customer foundEmployee = customerRepository.findByFirstName("Bill");
+        assertEquals(foundEmployee.getFirstName(), customer.getFirstName());
+
+        foundEmployee.setFirstName("William");
+        Customer updatedCustomer = customerRepository.save(foundEmployee);
+        assertEquals(updatedCustomer.getFirstName(), "William");
     }
 
 }
