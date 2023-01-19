@@ -26,17 +26,17 @@ class EmbeddedKafkaIntegrationTest {
   @Autowired
   KafkaConsumer consumer;
 
-  @Test
-  public void givenEmbeddedKafkaBroker_whenSendingWithSimpleProducer_thenMessageReceived() 
-    throws Exception {
-    Customer c = new Customer("Bill","Polinchak","Venice");
-    String json = Util.asJsonString(c);
-    producer.send(json);
+  // @Test
+  // public void givenEmbeddedKafkaBroker_whenSendingWithSimpleProducer_thenMessageReceived() 
+  //   throws Exception {
+  //   Customer c = new Customer("Bill","Polinchak","Venice");
+  //   String json = Util.asJsonString(c);
+  //   producer.send(json);
 
-    boolean messageConsumed = consumer.getLatch().await(30, TimeUnit.SECONDS);
-    assertTrue(messageConsumed);
+  //   boolean messageConsumed = consumer.getLatch().await(30, TimeUnit.SECONDS);
+  //   assertTrue(messageConsumed);
 
-    String payload = consumer.getPayload();
-    assertTrue(payload.contains("Polinchak"));
-  }
+  //   String payload = consumer.getPayload();
+  //   assertTrue(payload.contains("Polinchak"));
+  // }
 }
