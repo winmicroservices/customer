@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,7 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 * This entity is used to collect the changes to the customer.  
 * The records will be streamed to an event queue.
 */
-@Table(name = "event")
+@Table(name = "event",
+            indexes = {@Index(name = "MESSAGESENT_IDX", columnList = "msg_sent",  unique = false)})
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 public class Event {
@@ -37,12 +39,14 @@ public class Event {
 
     @Column(name = "id")
     private Long id;
-
+    
+    /**
+     * Used to track if the message was sent to Kafka.
+     */
     @Column(name="msg_sent")
     private Boolean messageSent;
 
     private String payload;
-
     
     public Event() {
         
