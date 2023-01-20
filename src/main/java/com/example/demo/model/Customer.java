@@ -88,7 +88,4 @@ public class Customer {
     public void setCity(String city) {
         this.city = city;
     }
-    
-    
-  
 }
