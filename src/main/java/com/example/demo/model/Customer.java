@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -14,7 +15,11 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * This class models a customer in a database.
  */
-@Table(name = "customer")
+@Table(name = "customer", 
+       indexes = { @Index(name = "FIRSTNAME_IDX", columnList = "firstName",  unique = false),
+                   @Index(name = "LASTNAME_IDX", columnList = "lastName",  unique = false),
+                   @Index(name = "CREDITLIMIT_IDX", columnList = "creditLimit",  unique = false),
+                   @Index(name = "CITY_IDX", columnList = "city",  unique = false) })
 @Entity
 @JsonIgnoreProperties(value = {"id", "hibernateLazyInitializer", "handler"})
 @Slf4j
@@ -27,11 +32,9 @@ public class Customer {
     @Column(name="customer_id")
     @GeneratedValue(strategy = GenerationType.AUTO) 
     private long id;
-
     private String firstName;
     private String lastName;
     private Integer creditLimit;
-    
     private String city;
     
     public Customer() {
