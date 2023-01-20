@@ -1,3 +1,24 @@
+# [6.0.0](https://github.com/winmicroservices/customer/compare/v5.0.0...v6.0.0) (2023-01-20)
+
+
+### Bug Fixes
+
+* [#39](https://github.com/winmicroservices/customer/issues/39) Organizing imports. ([908bf71](https://github.com/winmicroservices/customer/commit/908bf71d4962c380030c9c9fd5109f9234a59a05))
+* **pom:** [#39](https://github.com/winmicroservices/customer/issues/39) Changing artifact id. ([d97ca2a](https://github.com/winmicroservices/customer/commit/d97ca2a7acc9f2b387225488c7ac13b188d7d391))
+
+
+### Features
+
+* [#39](https://github.com/winmicroservices/customer/issues/39) Adding index to the msg_sent column on the event table. ([8854fa1](https://github.com/winmicroservices/customer/commit/8854fa1633b5ad9c22a57eae11267b432aac7457))
+* Add database indexes. [#39](https://github.com/winmicroservices/customer/issues/39) ([debca68](https://github.com/winmicroservices/customer/commit/debca68ad0df9290e64cfabb7fae69697b4008ae))
+
+
+### BREAKING CHANGES
+
+* **pom:** Changing the artifact id.
+
+
+
 # [5.0.0](https://github.com/winmicroservices/customer/compare/v4.0.0...v5.0.0) (2023-01-19)
 
 
@@ -102,19 +123,6 @@
 ### BREAKING CHANGES
 
 * This is a breaking change.
-
-
-
-## [2.2.2](https://github.com/winmicroservices/customer/compare/v2.2.1...v2.2.2) (2023-01-06)
-
-
-### Bug Fixes
-
-* [#29](https://github.com/winmicroservices/customer/issues/29) Adding link to hatoes article in the readme. ([2a391b8](https://github.com/winmicroservices/customer/commit/2a391b88e9139b60689ba823708dcb154839539e))
-* [#29](https://github.com/winmicroservices/customer/issues/29) Adding search and sort example. ([87a9cc3](https://github.com/winmicroservices/customer/commit/87a9cc353557fd51a50d34bb6018daca82811086))
-* Publish Jacoco reports. [#29](https://github.com/winmicroservices/customer/issues/29) ([2c67ec0](https://github.com/winmicroservices/customer/commit/2c67ec0e74f395c4645c1145f43fe205b9689cbd))
-* Publish Jacoco reports. [#29](https://github.com/winmicroservices/customer/issues/29).  Put the path in quotes. ([c85ba53](https://github.com/winmicroservices/customer/commit/c85ba53dbe08cc59139a488ebf9b1ee5caa22086))
-* Publish Jacoco reports. [#29](https://github.com/winmicroservices/customer/issues/29).  Updating the readme to reflect changes in the api. ([e749930](https://github.com/winmicroservices/customer/commit/e749930c69637f96245340dd678c30ea09389d64))
 
 
 
