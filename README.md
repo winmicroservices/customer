@@ -91,6 +91,16 @@ This is a sample http GET that performs a search and sort.
 curl http://localhost:8080/api/v4/customers?firstNameFilter=W&lastNameFilter=P&page=0&size=5&sortList=firstName&sortOrder=ASC
 ```
 
+### Update Customer
+
+This is a sample http PUT for updating a customer.
+
+```
+curl -X PUT http://localhost:8080/api/v1/customer/1 \
+   -H 'Content-Type: application/json' \
+   -d '{"firstName":"William","lastName":"Polinchak","city":"Venice"}'
+```
+
 ### Delete Customer
 
 This is a sample http GET for deleting a customer.
