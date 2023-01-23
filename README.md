@@ -11,9 +11,19 @@ GraalVM builds a native image for the Java app to start up and run faster.
 
 ## Run locally
 
-Bring up the database:
+Create the Docker volumes:
 
-+ docker-compose up
+```
+docker volume create kafka_data
+docker volume create mysql-demo-volume
+docker volume create zookeeper_data
+```
+
+Start the containers with Docker Compose:
+
+```
+docker-compose up -d
+```
 
 Populate the database
 
