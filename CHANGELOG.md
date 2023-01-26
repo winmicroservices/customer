@@ -1,3 +1,23 @@
+# [7.0.0](https://github.com/winmicroservices/customer/compare/v6.0.0...v7.0.0) (2023-01-26)
+
+
+### Bug Fixes
+
+* [#41](https://github.com/winmicroservices/customer/issues/41) Updating tests to accomodate the changes to the context path. ([234c8eb](https://github.com/winmicroservices/customer/commit/234c8eba306dc5f2d90ed8baf0c67084181983e6))
+* **api:** Demo follow up items [#41](https://github.com/winmicroservices/customer/issues/41).  Changing the url patterns to have a a base of /customer ([41faa79](https://github.com/winmicroservices/customer/commit/41faa7966d68ce772436de92b503b19ef57bc9d0))
+
+
+### Features
+
+* [#41](https://github.com/winmicroservices/customer/issues/41) Adding swagger API. ([8cbfbbe](https://github.com/winmicroservices/customer/commit/8cbfbbed07e4be660a114ea02e0b2153eaa39068))
+
+
+### BREAKING CHANGES
+
+* **api:** Changing the url pattern
+
+
+
 # [6.0.0](https://github.com/winmicroservices/customer/compare/v5.0.0...v6.0.0) (2023-01-20)
 
 
@@ -104,25 +124,6 @@
 * [#27](https://github.com/winmicroservices/customer/issues/27) Adding EmbeddedKafka for testing. ([cc5d125](https://github.com/winmicroservices/customer/commit/cc5d125fa39daada3b023e9953b71a1b58f1b494))
 * [#27](https://github.com/winmicroservices/customer/issues/27) Adding kafka viewer to the docker-compose. ([a4ff2e1](https://github.com/winmicroservices/customer/commit/a4ff2e1096b609c09409da284061cb637f784a34))
 * Add Kafka for events [#27](https://github.com/winmicroservices/customer/issues/27) ([cdb795d](https://github.com/winmicroservices/customer/commit/cdb795deae89e19dea3baabcadc875bfa02d872c))
-
-
-
-# [3.0.0](https://github.com/winmicroservices/customer/compare/v2.2.2...v3.0.0) (2023-01-06)
-
-
-### Bug Fixes
-
-* Test out conventional commits. [#32](https://github.com/winmicroservices/customer/issues/32) ([47c2dfe](https://github.com/winmicroservices/customer/commit/47c2dfe76ebb53afc4cc0915306d94a248bf17a2))
-
-
-### Features
-
-* [#32](https://github.com/winmicroservices/customer/issues/32) Removing the test coverage report to the PR. ([410c44c](https://github.com/winmicroservices/customer/commit/410c44c7bcddbea1fb3f79d22f40b03a83509495))
-
-
-### BREAKING CHANGES
-
-* This is a breaking change.
 
 
 
