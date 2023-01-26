@@ -55,7 +55,9 @@ mvn -Pnative spring-boot:build-image
 
 ## APIs
 
-Swagger API [http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/)
+### Swagger API
+
+[http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/)
 
 ### Hatoes
 
