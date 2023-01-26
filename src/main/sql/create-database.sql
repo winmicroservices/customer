@@ -1,2 +1,2 @@
--- run this as petpeople
+-- run this as demo
 create database demo;

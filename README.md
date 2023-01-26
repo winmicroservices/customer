@@ -2,12 +2,14 @@
 
 ## Description 
 
-A very simple Springboot app.  We'll use this to kick off the winmicroservices
-organization set of repositories.
+A very simple Springboot app that models the customer discussed on the [microservices.io](https://microservices.io/index.html) site.  We'll use this to kick off the winmicroservices organization set of repositories.
 
-## GraalVM
+### Microservices Patterns
 
-GraalVM builds a native image for the Java app to start up and run faster.
++ [Database Per Service](https://microservices.io/patterns/data/database-per-service.html)
++ [Saga](https://microservices.io/patterns/data/saga.html)
++ [CQRS](https://microservices.io/patterns/data/cqrs.html)
+
 
 ## Run locally
 
@@ -42,11 +44,6 @@ Populate the database
   + Run the following script to create the database:  
   + create-database.sql
 
-### Springboot support
-
-Springboot supports GraalVM.  Refer to this link on [SpringBoot GraalVM](https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/native-image.html#native-image) support.
-
-### Build GraalVM Docker Image with Maven
 
 ```
 mvn -Pnative spring-boot:build-image
@@ -113,3 +110,12 @@ This is a sample http GET for deleting a customer.
 ```
 curl -X DELETE http://localhost:8080/api/v1/customer/1
 ```
+## GraalVM
+
+GraalVM builds a native image for the Java app to start up and run faster.
+
+### Springboot support
+
+Springboot supports GraalVM.  Refer to this link on [SpringBoot GraalVM](https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/native-image.html#native-image) support.
+
+### Build GraalVM Docker Image with Maven
