@@ -25,27 +25,27 @@ class RestControllerTests {
 
 	@Test
 	void testCustomers() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/api/v0/customers")).andExpect(status().isOk());
+		mvc.perform(MockMvcRequestBuilders.get("/api/v0/customer")).andExpect(status().isOk());
 	}
 
 	@Test
 	public void testHateOSCustomers() throws Exception {
 		mvc.perform( MockMvcRequestBuilders
-				.post("/api/v1/customer/create")
+				.post("/api/v1/customer")
 				.content(Util.asJsonString(new Customer("William", "Polinchak", "Venice")))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().is(200));
 
 		mvc.perform(MockMvcRequestBuilders
-			.get("/api/v4/customers?firstNameFilter=W&lastNameFilter=P&page=0&size=5&sortList=firstName&sortOrder=ASC"))
+			.get("/api/v4/customer?firstNameFilter=W&lastNameFilter=P&page=0&size=5&sortList=firstName&sortOrder=ASC"))
 			.andExpect(status().isOk());
 	}
 
 	@Test
 	public void createCustomer() throws Exception {
 		mvc.perform( MockMvcRequestBuilders
-				.post("/api/v1/customer/create")
+				.post("/api/v1/customer")
 				.content(Util.asJsonString(new Customer("William", "Polinchak", "Venice")))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
@@ -55,14 +55,14 @@ class RestControllerTests {
 	@Test
 	public void updateCustomer() throws Exception {
 		mvc.perform( MockMvcRequestBuilders
-				.post("/api/v1/customer/create")
+				.post("/api/v1/customer")
 				.content(Util.asJsonString(new Customer("William", "Polinchak", "Venice")))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().is(200));
 
 		mvc.perform( MockMvcRequestBuilders
-			.put("/api/v1/customer/update/1")
+			.put("/api/v1/customer/1")
 			.content(Util.asJsonString(new Customer("William", "Polinchak", "Atlanta")))
 			.contentType(MediaType.APPLICATION_JSON)
 			.accept(MediaType.APPLICATION_JSON))
