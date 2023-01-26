@@ -78,7 +78,7 @@ public class CustomerController {
      * Rest api for returning all the customers in the database.
      * @return All the customers in json format.
      */
-    @GetMapping("/api/v0/customers")
+    @GetMapping("/api/v0/customer")
     public CollectionModel<EntityModel<Customer>> retrieveAllEmployees() {
         List<EntityModel<Customer>> items = customerService.fetchCustomerDataAsList().stream().map(item -> EntityModel.of(item,
                 linkTo(methodOn(CustomerController.class).retrieveAllEmployees()).withRel("customers")))
@@ -99,7 +99,7 @@ public class CustomerController {
      * @param lastNameFilter  Filter for the last Name if required
      * @return List of filtered customers
      */
-    @GetMapping("/api/v1/customers")
+    @GetMapping("/api/v1/customer")
     public List<Customer> fetchCustomersAsFilteredList(@RequestParam(defaultValue = "") String firstNameFilter,
                                                        @RequestParam(defaultValue = "") String lastNameFilter) {
         return customerService.fetchFilteredCustomerDataAsList(firstNameFilter, lastNameFilter);
@@ -112,7 +112,7 @@ public class CustomerController {
      * @param size            number of entries in each page
      * @return Page object with customers after filtering
      */
-    @GetMapping("/api/v2/customers")
+    @GetMapping("/api/v2/customer")
     public Page<Customer> fetchCustomersWithPageInterface(@RequestParam(defaultValue = "") String firstNameFilter,
                                                           @RequestParam(defaultValue = "") String lastNameFilter,
                                                           @RequestParam(defaultValue = "0") int page,
@@ -129,7 +129,7 @@ public class CustomerController {
      * @param sortOrder       sort order. Can be ASC or DESC
      * @return Page object with customers after filtering and sorting
      */
-    @GetMapping("/api/v3/customers")
+    @GetMapping("/api/v3/customer")
     public Page<Customer> fetchCustomersWithPageInterfaceAndSorted(@RequestParam(defaultValue = "") String firstNameFilter,
                                                                    @RequestParam(defaultValue = "") String lastNameFilter,
                                                                    @RequestParam(defaultValue = "0") int page,
@@ -148,7 +148,7 @@ public class CustomerController {
      * @param sortOrder       sort order. Can be ASC or DESC
      * @return PagedModel object in Hateoas with customers after filtering and sorting
      */
-    @GetMapping("/api/v4/customers")
+    @GetMapping("/api/v4/customer")
     public PagedModel<CustomerModel> fetchCustomersWithPagination(
             @RequestParam(defaultValue = "") String firstNameFilter,
             @RequestParam(defaultValue = "") String lastNameFilter,
@@ -182,14 +182,14 @@ public class CustomerController {
      * @return The customer along with its primary key.
      * @throws Exception If the customer can't be stored.
      */
-    @RequestMapping(value = "/api/v1/customer/create", method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(value = "/api/v1/customer", method = RequestMethod.POST, consumes = "application/json")
     public EntityModel<Customer> saveCustomer(@RequestBody Customer customer) throws Exception {
         log.info("Saving customer {}",customer.getFirstName());
         Customer savedEmployee = customerService.saveCustomer(customer);
         return retrieveCustomer(savedEmployee.getId());
     }
 
-    @PutMapping(value= "/api/v1/customer/update/{id}")
+    @PutMapping(value= "/api/v1/customer/{id}")
     public EntityModel<Customer> updateCustomer(@PathVariable(value = "id") Long id, @RequestBody Customer customer) throws Exception {
         customer.setId(id);
         Customer updatedCustomer = customerService.updateCustomer(customer);

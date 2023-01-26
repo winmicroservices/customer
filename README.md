@@ -52,7 +52,12 @@ Springboot supports GraalVM.  Refer to this link on [SpringBoot GraalVM](https:/
 mvn -Pnative spring-boot:build-image
 ```
 
+
 ## APIs
+
+### Swagger API
+
+[http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/)
 
 ### Hatoes
 
@@ -64,7 +69,7 @@ This [article](https://www.springcloud.io/post/2022-04/hateoas-spring-boot-and-j
 This is a sample http POST for creating a customer.
 
 ```
-curl -X POST http://localhost:8080/api/v1/customer/create \
+curl -X POST http://localhost:8080/api/v1/customer \
    -H 'Content-Type: application/json' \
    -d '{"firstName":"Bill","lastName":"Polinchak","city":"Venice"}'
 ```
@@ -82,13 +87,13 @@ curl http://localhost:8080/api/v1/customer/1
 This is a sample http GET for retreving a list of customers.
 
 ```
-curl http://localhost:8080/api/v4/customers
+curl http://localhost:8080/api/v4/customer
 ```
 
 This is a sample http GET that performs a search and sort.
 
 ```
-curl http://localhost:8080/api/v4/customers?firstNameFilter=W&lastNameFilter=P&page=0&size=5&sortList=firstName&sortOrder=ASC
+curl http://localhost:8080/api/v4/customer?firstNameFilter=B&lastNameFilter=P&page=0&size=5&sortList=firstName&sortOrder=ASC
 ```
 
 ### Update Customer
