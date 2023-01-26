@@ -9,6 +9,7 @@ A very simple Springboot app that models the customer discussed on the [microser
 + [Database Per Service](https://microservices.io/patterns/data/database-per-service.html)
 + [Saga](https://microservices.io/patterns/data/saga.html)
 + [CQRS](https://microservices.io/patterns/data/cqrs.html)
++ [Transactional Outbox](https://microservices.io/patterns/data/transactional-outbox.html)
 
 
 ## Run locally
