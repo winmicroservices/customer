@@ -55,14 +55,14 @@ services:
         KMAGIC_CONFIG_STORE_CONNECTION: "Data Source=/config/KafkaMagicConfig.db;"
         # KMAGIC_CONFIG_ENCRYPTION_KEY: "ENTER_YOUR_KEY_HERE"
 
-  # customer:
-  #   image: polinchw/customer:6.0.0
-  #   ports:
-  #     - "8080:8080"
-  #   environment:
-  #     - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/demo
-  #     - SPRING_KAFKA_PRODUCER_BOOTSTRAP-SERVERS=kafka:9092 
-  #     - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka:9092
+  customer:
+    image: polinchw/customer:7.0.0
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/demo
+      - SPRING_KAFKA_PRODUCER_BOOTSTRAP-SERVERS=kafka:9092 
+      - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka:9092
 
   message-relay:
     image: polinchw/message-relay:1.1.0
