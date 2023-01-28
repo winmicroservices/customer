@@ -46,10 +46,6 @@ Populate the database
   + create-database.sql
 
 
-```
-mvn -Pnative spring-boot:build-image
-```
-
 
 ## APIs
 
@@ -114,6 +110,10 @@ curl -X DELETE http://localhost:8080/api/v1/customer/1
 ## GraalVM
 
 GraalVM builds a native image for the Java app to start up and run faster.
+
+```
+mvn -Pnative spring-boot:build-image
+```
 
 ### Springboot support
 
