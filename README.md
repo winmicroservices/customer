@@ -45,8 +45,6 @@ Populate the database
   + Run the following script to create the database:  
   + create-database.sql
 
-
-
 ## APIs
 
 ### Swagger API
@@ -111,12 +109,11 @@ curl -X DELETE http://localhost:8080/api/v1/customer/1
 
 GraalVM builds a native image for the Java app to start up and run faster.
 
-```
-mvn -Pnative spring-boot:build-image
-```
-
 ### Springboot support
 
 Springboot supports GraalVM.  Refer to this link on [SpringBoot GraalVM](https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/native-image.html#native-image) support.
 
 ### Build GraalVM Docker Image with Maven
+```
+mvn -Pnative spring-boot:build-image
+```
